@@ -2,8 +2,7 @@
 
 <template>
   <div>
-    <UButton>Foo</UButton>
-    <UColorModeButton />
+    <h1>foo</h1>
   </div>
 </template>
 

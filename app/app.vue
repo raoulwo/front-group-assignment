@@ -3,7 +3,9 @@
 <template>
   <UApp>
     <AppHeader />
-    <NuxtPage />
+    <UContainer>
+      <NuxtPage />
+    </UContainer>
     <AppFooter />
   </UApp>
 </template>

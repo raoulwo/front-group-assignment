@@ -2,19 +2,22 @@
 @import "@nuxt/ui";
 
 @theme static {
-  /* NOTE: Palettes generated with `https://www.tints.dev` */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
-  --color-french-blue-50: oklch(95.37% 0.011 280.47);
-  --color-french-blue-100: oklch(90.46% 0.022 283.10);
-  --color-french-blue-200: oklch(80.67% 0.047 281.20);
-  --color-french-blue-300: oklch(70.72% 0.072 280.76);
-  --color-french-blue-400: oklch(60.55% 0.100 278.98);
-  --color-french-blue-500: oklch(50.30% 0.129 277.04);
-  --color-french-blue-600: oklch(43.07% 0.108 276.94);
-  --color-french-blue-700: oklch(35.53% 0.084 277.68);
-  --color-french-blue-800: oklch(27.56% 0.061 277.71);
-  --color-french-blue-900: oklch(19.01% 0.032 280.11);
-  --color-french-blue-950: oklch(16.40% 0.023 279.51);
+  /* NOTE: Palettes generated with `https://coolors.co/tailwind` */
+
+  --color-french-blue-50: oklch(95.52% 0.011 269.55);
+  --color-french-blue-100: oklch(90.77% 0.022 272.04);
+  --color-french-blue-200: oklch(81.53% 0.047 269.10);
+  --color-french-blue-300: oklch(71.97% 0.073 269.39);
+  --color-french-blue-400: oklch(62.48% 0.101 267.76);
+  --color-french-blue-500: oklch(52.79% 0.130 266.93);
+  --color-french-blue-600: oklch(45.23% 0.109 266.62);
+  --color-french-blue-700: oklch(37.10% 0.085 267.46);
+  --color-french-blue-800: oklch(28.76% 0.061 267.03);
+  --color-french-blue-900: oklch(19.51% 0.033 269.92);
+  --color-french-blue-950: oklch(16.63% 0.026 269.37);
 
   --color-dim-grey-50: oklch(95.87% 0.003 286.35);
   --color-dim-grey-100: oklch(91.92% 0.006 274.96);
