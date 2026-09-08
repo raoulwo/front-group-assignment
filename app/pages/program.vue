@@ -2,7 +2,7 @@
 
 <template>
   <UContainer>
-    <h1>Mein Programm</h1>
+    <UPageHeader title="Mein Programm" />
   </UContainer>
 </template>
 

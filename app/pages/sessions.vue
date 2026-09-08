@@ -2,7 +2,7 @@
 
 <template>
   <UContainer>
-    <h1>Sessions</h1>
+    <UPageHeader title="Sessions" />
   </UContainer>
 </template>
 

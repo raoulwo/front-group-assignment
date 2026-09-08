@@ -2,7 +2,7 @@
 
 <template>
   <UContainer>
-    <h1>Rooms</h1>
+    <UPageHeader title="Räume" />
   </UContainer>
 </template>
 

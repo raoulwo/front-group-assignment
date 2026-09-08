@@ -2,7 +2,7 @@
 
 <template>
   <UContainer>
-    <h1>Tracks</h1>
+    <UPageHeader title="Lernpfade" />
   </UContainer>
 </template>
 
