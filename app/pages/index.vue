@@ -1,8 +1,10 @@
-<script setup lang="ts"> </script>
+<script setup lang="ts">
+const { conference } = useConference()
+</script>
 
 <template>
   <UContainer>
-    <h1>foo</h1>
+    <HomePageHero :conference="conference" />
   </UContainer>
 </template>
 
