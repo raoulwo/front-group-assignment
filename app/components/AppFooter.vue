@@ -1,9 +1,11 @@
 <script setup lang="ts"></script>
 
 <template>
-  <footer>
-    <p>This is the footer</p>
-  </footer>
+  <UFooter>
+    <p class="text-muted text-sm">
+      Copyright © {{ new Date().getFullYear() }}
+    </p>
+  </UFooter>
 </template>
 
 <style scoped></style>

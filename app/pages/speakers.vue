@@ -1,9 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>
+  <UContainer>
     <h1>Speakers</h1>
-  </div>
+  </UContainer>
 </template>
 
 <style scoped></style>

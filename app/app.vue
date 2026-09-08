@@ -3,9 +3,15 @@
 <template>
   <UApp>
     <AppHeader />
-    <UContainer>
+    <UMain>
       <NuxtPage />
-    </UContainer>
+    </UMain>
+
+    <USeparator
+      type="dashed"
+      class="h-px"
+    />
+
     <AppFooter />
   </UApp>
 </template>
