@@ -1,10 +1,9 @@
-<script setup lang="ts">
-const { conference } = useConference()
-</script>
+<script setup lang="ts"> </script>
 
 <template>
   <div>
-    <pre>{{ conference }}</pre>
+    <UButton>Foo</UButton>
+    <UColorModeButton />
   </div>
 </template>
 
