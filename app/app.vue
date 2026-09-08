@@ -1,11 +1,11 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>
+  <UApp>
     <AppHeader />
     <NuxtPage />
     <AppFooter />
-  </div>
+  </UApp>
 </template>
 
 <style scoped></style>
