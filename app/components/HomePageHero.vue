@@ -8,7 +8,7 @@ defineProps<{
 
 const links = ref<ButtonProps[]>([
   {
-    label: 'Erstelle Programm',
+    label: 'Zu meinem Programm',
     to: '/program',
     icon: 'i-lucide-arrow-right',
   },
