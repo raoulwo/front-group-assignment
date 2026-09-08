@@ -1,11 +1,8 @@
+import conferenceJson from '~/data/conference-data.json'
 import type { ConferenceData } from '~/types/conference-data'
 
-export const useConferenceData = () => {
-  const KEY = 'conference-data'
+const data = conferenceJson as ConferenceData
 
-  // NOTE: We use the same key for each call to cache the response!. The cached
-  // value can then be accessed via `useNuxtData` composable (if needed).
-  return useAsyncData<ConferenceData>(KEY, () =>
-    $fetch('/data/conference-data.json'),
-  )
+export const useConferenceData = () => {
+  return data
 }

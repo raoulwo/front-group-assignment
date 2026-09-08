@@ -1,7 +1,7 @@
 export const useSpeakers = () => {
-  const { data } = useConferenceData()
+  const data = useConferenceData()
 
-  const speakers = computed(() => data.value?.speakers ?? [])
+  const speakers = computed(() => data.speakers)
 
   return {
     speakers,

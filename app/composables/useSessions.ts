@@ -1,7 +1,7 @@
 export const useSessions = () => {
-  const { data } = useConferenceData()
+  const data = useConferenceData()
 
-  const sessions = computed(() => data.value?.sessions ?? [])
+  const sessions = computed(() => data.sessions)
 
   return {
     sessions,

@@ -1,7 +1,7 @@
 export const useConference = () => {
-  const { data } = useConferenceData()
+  const data = useConferenceData()
 
-  const conference = computed(() => data.value?.conference ?? null)
+  const conference = computed(() => data.conference)
 
   return {
     conference,
