@@ -9,6 +9,26 @@ const items = computed<NavigationMenuItem[]>(() => [
     to: '/program',
     active: route.path.startsWith('/program'),
   },
+  {
+    label: 'Sprecher*innen',
+    to: '/speakers',
+    active: route.path.startsWith('/speakers'),
+  },
+  {
+    label: 'Räume',
+    to: '/rooms',
+    active: route.path.startsWith('/rooms'),
+  },
+  {
+    label: 'Lernpfade',
+    to: '/tracks',
+    active: route.path.startsWith('/tracks'),
+  },
+  {
+    label: 'Sessions',
+    to: '/sessions',
+    active: route.path.startsWith('/sessions'),
+  },
 ])
 </script>
 
