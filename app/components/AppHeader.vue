@@ -15,9 +15,9 @@ const items = computed<NavigationMenuItem[]>(() => [
     active: route.path.startsWith('/speakers'),
   },
   {
-    label: 'Räume',
-    to: '/rooms',
-    active: route.path.startsWith('/rooms'),
+    label: 'Sessions',
+    to: '/sessions',
+    active: route.path.startsWith('/sessions'),
   },
   {
     label: 'Lernpfade',
@@ -25,9 +25,9 @@ const items = computed<NavigationMenuItem[]>(() => [
     active: route.path.startsWith('/tracks'),
   },
   {
-    label: 'Sessions',
-    to: '/sessions',
-    active: route.path.startsWith('/sessions'),
+    label: 'Räume',
+    to: '/rooms',
+    active: route.path.startsWith('/rooms'),
   },
 ])
 </script>
