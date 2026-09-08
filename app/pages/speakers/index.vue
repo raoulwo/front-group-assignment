@@ -6,11 +6,14 @@ const { speakers } = useSpeakers()
   <UContainer>
     <UPageHeader title="Sprecher*innen" />
     <div class="p-8 lg:p-16 space-y-6">
-      <SpeakerCard
+      <NuxtLink
         v-for="speaker in speakers"
         :key="speaker.id"
-        :speaker="speaker"
-      />
+        :to="`/speakers/${speaker.id}`"
+        class="block"
+      >
+        <SpeakerCard :speaker="speaker" />
+      </NuxtLink>
     </div>
   </UContainer>
 </template>
