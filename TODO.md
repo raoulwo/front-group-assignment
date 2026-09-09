@@ -1,6 +1,5 @@
 # Todo
 
-- show sessions of speaker in their detail page
 - create searchbar for sessions in the sessions page
 - create session detail page and show the session details
 - think about how i can eager load objects or load via FK
