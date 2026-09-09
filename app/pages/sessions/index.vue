@@ -4,6 +4,8 @@ const {
   selectedLevel,
   selectedFormat,
   selectedTrack,
+  selectedDate,
+  allDates,
   filteredSessions,
 } = useSessions()
 const { tracks } = useTracks()
@@ -14,6 +16,7 @@ const formats = ['Vortrag', 'Workshop', 'Podium']
 const setSelectedLevel = (level: string | null) => selectedLevel.value = level
 const setSelectedFormat = (format: string | null) => selectedFormat.value = format
 const setSelectedTrack = (trackId: string | null) => selectedTrack.value = trackId
+const setSelectedDate = (date: string | null) => selectedDate.value = date
 </script>
 
 <template>
@@ -40,6 +43,11 @@ const setSelectedTrack = (trackId: string | null) => selectedTrack.value = track
         class="mt-1 space-x-1"
         :options="formats"
         @select="setSelectedFormat"
+      />
+      <AppSearchFilter
+        class="mt-1 space-x-1"
+        :options="allDates"
+        @select="setSelectedDate"
       />
 
       <SessionCardList

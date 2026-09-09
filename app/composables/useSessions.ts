@@ -7,6 +7,7 @@ export const useSessions = () => {
   const selectedLevel = ref<string | null>(null)
   const selectedFormat = ref<string | null>(null)
   const selectedTrack = ref<string | null>(null)
+  const selectedDate = ref<string | null>(null)
 
   const sessions = computed(() => data.sessions)
 
@@ -21,9 +22,14 @@ export const useSessions = () => {
       const matchesLevel = !selectedLevel.value || selectedLevel.value === session.level
       const matchesFormat = !selectedFormat.value || selectedFormat.value === session.format
       const matchesTrack = !selectedTrack.value || selectedTrack.value === session.trackId
+      const matchesDate = !selectedDate.value || selectedDate.value === session.day
 
-      return matchesSearch && matchesLevel && matchesFormat && matchesTrack
+      return matchesSearch && matchesLevel && matchesFormat && matchesTrack && matchesDate
     }),
+  )
+
+  const allDates = computed(() =>
+    [...new Set(sessions.value.map(session => session.day))],
   )
 
   const findSessionById = (id: string | string[]): Session | undefined => {
@@ -39,6 +45,8 @@ export const useSessions = () => {
     selectedLevel,
     selectedFormat,
     selectedTrack,
+    selectedDate,
+    allDates,
     sessions,
     filteredSessions,
     findSessionById,

@@ -18,12 +18,16 @@ const getValue = (option: string | FilterOption) =>
 
 <template>
   <div>
-    <UButton @click="emit('select', null)">
+    <UButton
+      class="cursor-pointer"
+      @click="emit('select', null)"
+    >
       Alle
     </UButton>
     <UButton
       v-for="option in options"
       :key="getValue(option)"
+      class="cursor-pointer"
       @click="emit('select', getValue(option))"
     >
       {{ getLabel(option) }}
