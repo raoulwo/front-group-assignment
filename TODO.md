@@ -1,7 +1,6 @@
 # Todo
 
 - search sessions by speakers
-- search sessions by date
 - create useLocalStorage composable
 - implement creating your own program
     - idea: like todo list with sessions as items
