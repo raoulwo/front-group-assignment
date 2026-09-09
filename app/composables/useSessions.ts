@@ -4,22 +4,23 @@ export const useSessions = () => {
   const data = useConferenceData()
 
   const searchQuery = ref<string>('')
+  const selectedLevel = ref<string | null>(null)
 
   const sessions = computed(() => data.sessions)
 
-  const filteredSessions = computed(() => {
-    const query = searchQuery.value.toLowerCase().trim()
-    if (!query) {
-      return sessions.value
-    }
+  const filteredSessions = computed(() =>
+    sessions.value.filter((session) => {
+      const query = searchQuery.value.toLowerCase().trim()
 
-    const filtered = sessions.value.filter(session =>
-      session.title.toLowerCase().trim().includes(query)
-      || session.abstract.toLowerCase().trim().includes(query),
-    )
+      const matchesSearch = !query
+        || session.title.toLowerCase().trim().includes(query)
+        || session.abstract.toLowerCase().trim().includes(query)
 
-    return filtered
-  })
+      const matchesLevel = !selectedLevel.value || selectedLevel.value === session.level
+
+      return matchesSearch && matchesLevel
+    }),
+  )
 
   const findSessionById = (id: string | string[]): Session | undefined => {
     return sessions.value.find(session => session.id === id)
@@ -31,6 +32,7 @@ export const useSessions = () => {
 
   return {
     searchQuery,
+    selectedLevel,
     sessions,
     filteredSessions,
     findSessionById,

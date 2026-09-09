@@ -1,5 +1,15 @@
 <script setup lang="ts">
-const { searchQuery, filteredSessions } = useSessions()
+const {
+  searchQuery,
+  selectedLevel,
+  filteredSessions,
+} = useSessions()
+
+const levels = ['Einsteiger', 'Fortgeschritten', 'Experte']
+
+const setSelectedLevel = (level: string | null) => {
+  selectedLevel.value = level
+}
 </script>
 
 <template>
@@ -8,6 +18,12 @@ const { searchQuery, filteredSessions } = useSessions()
 
     <div class="p-8 lg:p-16">
       <AppSearchBar v-model="searchQuery" />
+
+      <AppSearchFilter
+        class="mt-2 space-x-1"
+        :options="levels"
+        @select="setSelectedLevel"
+      />
 
       <SessionCardList
         :sessions="filteredSessions"
