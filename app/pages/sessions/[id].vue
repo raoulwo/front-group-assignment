@@ -48,6 +48,14 @@ const items = ref<BreadcrumbItem[]>([
           Abstract
         </h2>
         <div class="text-primary text-lg flex space-x-4 mb-4">
+          <div
+            v-if="track"
+            class="flex items-center space-x-1"
+          >
+            <UIcon name="i-lucide-boxes" />
+            <span>{{ track.name }}</span>
+          </div>
+
           <div class="flex items-center space-x-1">
             <UIcon name="i-lucide-activity" />
             <span>{{ session.level }}</span>
@@ -56,14 +64,6 @@ const items = ref<BreadcrumbItem[]>([
           <div class="flex items-center space-x-1">
             <UIcon name="i-lucide-book-open" />
             <span>{{ session.format }}</span>
-          </div>
-
-          <div
-            v-if="track"
-            class="flex items-center space-x-1"
-          >
-            <UIcon name="i-lucide-boxes" />
-            <span>{{ track.name }}</span>
           </div>
         </div>
       </div>

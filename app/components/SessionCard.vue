@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import type { Session } from '~/types/session'
 
-defineProps<{
+const props = defineProps<{
   session: Session
 }>()
+
+const { findTrackById } = useTracks()
+
+const track = findTrackById(props.session.trackId)
 </script>
 
 <template>
@@ -18,6 +22,14 @@ defineProps<{
         </h1>
 
         <div class="flex items-center space-x-3 text-primary text-sm">
+          <div
+            v-if="track"
+            class="flex items-center space-x-1"
+          >
+            <UIcon name="i-lucide-boxes" />
+            <span>{{ track.name }}</span>
+          </div>
+
           <div class="flex items-center space-x-1">
             <UIcon name="i-lucide-activity" />
             <span>{{ session.level }}</span>

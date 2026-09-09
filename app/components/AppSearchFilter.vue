@@ -1,11 +1,19 @@
 <script setup lang="ts">
+type FilterOption = { label: string, value: string }
+
 defineProps<{
-  options: string[]
+  options: (string | FilterOption)[]
 }>()
 
 const emit = defineEmits<{
   select: [option: string | null]
 }>()
+
+const getLabel = (option: string | FilterOption) =>
+  typeof option === 'string' ? option : option.label
+
+const getValue = (option: string | FilterOption) =>
+  typeof option === 'string' ? option : option.value
 </script>
 
 <template>
@@ -15,10 +23,10 @@ const emit = defineEmits<{
     </UButton>
     <UButton
       v-for="option in options"
-      :key="option"
-      @click="emit('select', option)"
+      :key="getValue(option)"
+      @click="emit('select', getValue(option))"
     >
-      {{ option }}
+      {{ getLabel(option) }}
     </UButton>
   </div>
 </template>

@@ -1,8 +1,7 @@
 # Todo
 
-- create searchbar for sessions in the sessions page
-- think about how i can eager load objects or load via FK
-- filter sessions by critieria (look at assignment description)
+- search sessions by speakers
+- search sessions by date
 - create useLocalStorage composable
 - implement creating your own program
     - idea: like todo list with sessions as items

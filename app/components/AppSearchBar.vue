@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   modelValue: string
+  placeholder?: string
 }>()
 defineEmits(['update:modelValue'])
 </script>
@@ -8,7 +9,7 @@ defineEmits(['update:modelValue'])
 <template>
   <UInput
     :value="modelValue"
-    placeholder="Suche..."
+    :placeholder="placeholder ?? 'Suche...'"
     class="w-full"
     @input="$emit('update:modelValue', $event.target.value)"
   />

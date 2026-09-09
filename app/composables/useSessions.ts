@@ -6,6 +6,7 @@ export const useSessions = () => {
   const searchQuery = ref<string>('')
   const selectedLevel = ref<string | null>(null)
   const selectedFormat = ref<string | null>(null)
+  const selectedTrack = ref<string | null>(null)
 
   const sessions = computed(() => data.sessions)
 
@@ -19,8 +20,9 @@ export const useSessions = () => {
 
       const matchesLevel = !selectedLevel.value || selectedLevel.value === session.level
       const matchesFormat = !selectedFormat.value || selectedFormat.value === session.format
+      const matchesTrack = !selectedTrack.value || selectedTrack.value === session.trackId
 
-      return matchesSearch && matchesLevel && matchesFormat
+      return matchesSearch && matchesLevel && matchesFormat && matchesTrack
     }),
   )
 
@@ -36,6 +38,7 @@ export const useSessions = () => {
     searchQuery,
     selectedLevel,
     selectedFormat,
+    selectedTrack,
     sessions,
     filteredSessions,
     findSessionById,
