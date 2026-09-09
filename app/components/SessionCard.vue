@@ -6,8 +6,10 @@ const props = defineProps<{
 }>()
 
 const { findTrackById } = useTracks()
+const { findRoomById } = useRooms()
 
 const track = findTrackById(props.session.trackId)
+const room = findRoomById(props.session.roomId)
 </script>
 
 <template>
@@ -44,6 +46,28 @@ const track = findTrackById(props.session.trackId)
     </template>
     <template #description>
       {{ session.abstract }}
+    </template>
+
+    <template #footer>
+      <div class="text-sm flex space-x-4">
+        <p class="flex items-center space-x-1">
+          <UIcon name="i-lucide-calendar" />
+          <span>{{ session.day }}</span>
+        </p>
+
+        <p class="flex items-center space-x-1">
+          <UIcon name="i-lucide-clock" />
+          <span>{{ session.startTime }}-{{ session.endTime }}</span>
+        </p>
+
+        <p
+          v-if="room"
+          class="flex items-center space-x-1"
+        >
+          <UIcon name="i-lucide-house" />
+          <span>{{ room.name }}</span>
+        </p>
+      </div>
     </template>
   </UPageCard>
 </template>
