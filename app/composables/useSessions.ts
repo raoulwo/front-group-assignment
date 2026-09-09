@@ -8,6 +8,7 @@ export const useSessions = () => {
   const selectedFormat = ref<string | null>(null)
   const selectedTrack = ref<string | null>(null)
   const selectedDate = ref<string | null>(null)
+  const selectedSpeaker = ref<string>('all')
 
   const sessions = computed(() => data.sessions)
 
@@ -23,8 +24,9 @@ export const useSessions = () => {
       const matchesFormat = !selectedFormat.value || selectedFormat.value === session.format
       const matchesTrack = !selectedTrack.value || selectedTrack.value === session.trackId
       const matchesDate = !selectedDate.value || selectedDate.value === session.day
+      const matchesSpeaker = selectedSpeaker.value === 'all' || session.speakerIds.includes(selectedSpeaker.value)
 
-      return matchesSearch && matchesLevel && matchesFormat && matchesTrack && matchesDate
+      return matchesSearch && matchesLevel && matchesFormat && matchesTrack && matchesDate && matchesSpeaker
     }),
   )
 
@@ -46,6 +48,7 @@ export const useSessions = () => {
     selectedFormat,
     selectedTrack,
     selectedDate,
+    selectedSpeaker,
     allDates,
     sessions,
     filteredSessions,

@@ -1,17 +1,29 @@
 <script setup lang="ts">
+import type { SelectItem } from '@nuxt/ui'
+
 const {
   searchQuery,
   selectedLevel,
   selectedFormat,
   selectedTrack,
   selectedDate,
+  selectedSpeaker,
   allDates,
   filteredSessions,
 } = useSessions()
+const { speakers } = useSpeakers()
 const { tracks } = useTracks()
 
 const levels = ['Einsteiger', 'Fortgeschritten', 'Experte']
 const formats = ['Vortrag', 'Workshop', 'Podium']
+
+const items = computed<SelectItem[]>(() => {
+  const selected = speakers.value.map(speaker => ({ label: speaker.name, value: speaker.id }))
+
+  selected.unshift({ label: 'Alle Sprecher', value: 'all' })
+
+  return selected
+})
 </script>
 
 <template>
@@ -22,6 +34,12 @@ const formats = ['Vortrag', 'Workshop', 'Podium']
       <AppSearchBar
         v-model="searchQuery"
         placeholder="Suche nach Titel oder Abstract..."
+      />
+
+      <AppSelect
+        v-model="selectedSpeaker"
+        :items="items"
+        class="mt-3"
       />
 
       <AppSearchFilter
