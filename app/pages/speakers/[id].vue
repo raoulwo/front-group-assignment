@@ -3,15 +3,18 @@ import type { BreadcrumbItem } from '@nuxt/ui'
 
 const route = useRoute()
 const { findSpeakerById } = useSpeakers()
+const { findSessionsBySpeakerId } = useSessions()
 
 const speaker = findSpeakerById(route.params.id ?? '')
 if (!speaker) {
-  showError({
+  throw createError({
     status: 404,
     statusMessage: 'Sprecher*in nicht gefunden',
     fatal: true,
   })
 }
+
+const sessions = findSessionsBySpeakerId(speaker.id)
 
 const items = ref<BreadcrumbItem[]>([
   {
@@ -20,9 +23,9 @@ const items = ref<BreadcrumbItem[]>([
     to: '/speakers',
   },
   {
-    label: speaker!.name,
+    label: speaker.name,
     icon: 'i-lucide-link',
-    to: `/speakers/${speaker!.id}`,
+    to: `/speakers/${speaker.id}`,
   },
 ])
 </script>
@@ -58,6 +61,12 @@ const items = ref<BreadcrumbItem[]>([
       <h2 class="mt-8 text-4xl font-bold mb-4">
         Sessions
       </h2>
+
+      <SessionCardList
+        v-if="sessions.length > 0"
+        class="mt-8"
+        :sessions="sessions"
+      />
     </div>
   </UContainer>
 </template>
