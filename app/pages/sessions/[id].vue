@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import type { BreadcrumbItem } from '@nuxt/ui'
-import type { Speaker } from '~/types/speaker'
 
 const route = useRoute()
 const { findSessionById } = useSessions()
-const { findSpeakerById } = useSpeakers()
+const { findSpeakersByIds } = useSpeakers()
 const { findTrackById } = useTracks()
 const { findRoomById } = useRooms()
 
@@ -17,9 +16,7 @@ if (!session) {
   })
 }
 
-const speakers = session.speakerIds
-  .map(id => findSpeakerById(id))
-  .filter((speaker): speaker is Speaker => speaker !== undefined)
+const speakers = findSpeakersByIds(session.speakerIds)
 const track = findTrackById(session.trackId)
 const room = findRoomById(session.roomId)
 

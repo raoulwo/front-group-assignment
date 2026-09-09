@@ -9,8 +9,15 @@ export const useSpeakers = () => {
     return speakers.value.find(speaker => speaker.id === id)
   }
 
+  const findSpeakersByIds = (ids: string[]): Speaker[] => {
+    return ids
+      .map(id => findSpeakerById(id))
+      .filter((speaker): speaker is Speaker => speaker !== undefined)
+  }
+
   return {
     speakers,
     findSpeakerById,
+    findSpeakersByIds,
   }
 }
