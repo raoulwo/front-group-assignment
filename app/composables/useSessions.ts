@@ -5,6 +5,7 @@ export const useSessions = () => {
 
   const searchQuery = ref<string>('')
   const selectedLevel = ref<string | null>(null)
+  const selectedFormat = ref<string | null>(null)
 
   const sessions = computed(() => data.sessions)
 
@@ -17,8 +18,9 @@ export const useSessions = () => {
         || session.abstract.toLowerCase().trim().includes(query)
 
       const matchesLevel = !selectedLevel.value || selectedLevel.value === session.level
+      const matchesFormat = !selectedFormat.value || selectedFormat.value === session.format
 
-      return matchesSearch && matchesLevel
+      return matchesSearch && matchesLevel && matchesFormat
     }),
   )
 
@@ -33,6 +35,7 @@ export const useSessions = () => {
   return {
     searchQuery,
     selectedLevel,
+    selectedFormat,
     sessions,
     filteredSessions,
     findSessionById,

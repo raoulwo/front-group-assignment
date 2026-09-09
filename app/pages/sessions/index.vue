@@ -2,14 +2,15 @@
 const {
   searchQuery,
   selectedLevel,
+  selectedFormat,
   filteredSessions,
 } = useSessions()
 
 const levels = ['Einsteiger', 'Fortgeschritten', 'Experte']
+const formats = ['Vortrag', 'Workshop', 'Podium']
 
-const setSelectedLevel = (level: string | null) => {
-  selectedLevel.value = level
-}
+const setSelectedLevel = (level: string | null) => selectedLevel.value = level
+const setSelectedFormat = (format: string | null) => selectedFormat.value = format
 </script>
 
 <template>
@@ -20,9 +21,14 @@ const setSelectedLevel = (level: string | null) => {
       <AppSearchBar v-model="searchQuery" />
 
       <AppSearchFilter
-        class="mt-2 space-x-1"
+        class="mt-3 space-x-1"
         :options="levels"
         @select="setSelectedLevel"
+      />
+      <AppSearchFilter
+        class="mt-1 space-x-1"
+        :options="formats"
+        @select="setSelectedFormat"
       />
 
       <SessionCardList
