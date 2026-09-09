@@ -1,6 +1,5 @@
 # Todo
 
-- refactor card lists into own SessionCardList and SpeakerCardList components
 - create 404 page
 - show sessions of speaker in their detail page
 - create searchbar for sessions in the sessions page
