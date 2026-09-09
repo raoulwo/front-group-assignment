@@ -1,6 +1,5 @@
 # Todo
 
-- create 404 page
 - show sessions of speaker in their detail page
 - create searchbar for sessions in the sessions page
 - create session detail page and show the session details
