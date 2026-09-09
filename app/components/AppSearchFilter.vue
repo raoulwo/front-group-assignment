@@ -5,9 +5,7 @@ defineProps<{
   options: (string | FilterOption)[]
 }>()
 
-const emit = defineEmits<{
-  select: [option: string | null]
-}>()
+const modelValue = defineModel<string | null>({ default: null })
 
 const getLabel = (option: string | FilterOption) =>
   typeof option === 'string' ? option : option.label
@@ -20,7 +18,9 @@ const getValue = (option: string | FilterOption) =>
   <div>
     <UButton
       class="cursor-pointer"
-      @click="emit('select', null)"
+      :color="modelValue === null ? 'primary' : 'neutral'"
+      :variant="modelValue === null ? 'outline' : 'subtle'"
+      @click="modelValue = null"
     >
       Alle
     </UButton>
@@ -28,7 +28,9 @@ const getValue = (option: string | FilterOption) =>
       v-for="option in options"
       :key="getValue(option)"
       class="cursor-pointer"
-      @click="emit('select', getValue(option))"
+      :color="modelValue === getValue(option) ? 'primary' : 'neutral'"
+      :variant="modelValue === getValue(option) ? 'outline' : 'subtle'"
+      @click="modelValue = getValue(option)"
     >
       {{ getLabel(option) }}
     </UButton>

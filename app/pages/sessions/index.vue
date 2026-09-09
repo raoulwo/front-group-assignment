@@ -12,11 +12,6 @@ const { tracks } = useTracks()
 
 const levels = ['Einsteiger', 'Fortgeschritten', 'Experte']
 const formats = ['Vortrag', 'Workshop', 'Podium']
-
-const setSelectedLevel = (level: string | null) => selectedLevel.value = level
-const setSelectedFormat = (format: string | null) => selectedFormat.value = format
-const setSelectedTrack = (trackId: string | null) => selectedTrack.value = trackId
-const setSelectedDate = (date: string | null) => selectedDate.value = date
 </script>
 
 <template>
@@ -30,24 +25,24 @@ const setSelectedDate = (date: string | null) => selectedDate.value = date
       />
 
       <AppSearchFilter
+        v-model="selectedTrack"
         class="mt-3 space-x-1"
         :options="tracks.map(track => ({ value: track.id, label: track.name }))"
-        @select="setSelectedTrack"
       />
       <AppSearchFilter
+        v-model="selectedLevel"
         class="mt-1 space-x-1"
         :options="levels"
-        @select="setSelectedLevel"
       />
       <AppSearchFilter
+        v-model="selectedFormat"
         class="mt-1 space-x-1"
         :options="formats"
-        @select="setSelectedFormat"
       />
       <AppSearchFilter
+        v-model="selectedDate"
         class="mt-1 space-x-1"
         :options="allDates"
-        @select="setSelectedDate"
       />
 
       <SessionCardList
