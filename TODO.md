@@ -1,7 +1,6 @@
 # Todo
 
 - create searchbar for sessions in the sessions page
-- create session detail page and show the session details
 - think about how i can eager load objects or load via FK
 - filter sessions by critieria (look at assignment description)
 - create useLocalStorage composable
