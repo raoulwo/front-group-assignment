@@ -8,15 +8,17 @@ defineProps<{
 
 <template>
   <div class="space-y-6">
-    <NuxtLink
-      v-for="session in sessions"
-      :key="session.id"
-      :to="`/sessions/${session.id}`"
-      class="block"
-    >
-      <SessionCard :session="session" />
-    </NuxtLink>
+    <template v-if="sessions.length > 0">
+      <NuxtLink
+        v-for="session in sessions"
+        :key="session.id"
+        :to="`/sessions/${session.id}`"
+        class="block"
+      >
+        <SessionCard :session="session" />
+      </NuxtLink>
+    </template>
+
+    <BaseEmptyState v-else />
   </div>
 </template>
-
-<style scoped></style>
