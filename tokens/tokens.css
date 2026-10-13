@@ -1,0 +1,113 @@
+/* =========================================
+   VuePoint Design Tokens
+   ========================================= */
+
+/* PRIMITIVE COLOR TOKENS
+   Original color palettes from VuePoint
+*/
+@theme static {
+  /* Typography: original font families */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* French Blue */
+  --color-french-blue-50: oklch(95.52% 0.011 269.55);
+  --color-french-blue-100: oklch(90.77% 0.022 272.04);
+  --color-french-blue-200: oklch(81.53% 0.047 269.10);
+  --color-french-blue-300: oklch(71.97% 0.073 269.39);
+  --color-french-blue-400: oklch(62.48% 0.101 267.76);
+  --color-french-blue-500: oklch(52.79% 0.130 266.93);
+  --color-french-blue-600: oklch(45.23% 0.109 266.62);
+  --color-french-blue-700: oklch(37.10% 0.085 267.46);
+  --color-french-blue-800: oklch(28.76% 0.061 267.03);
+  --color-french-blue-900: oklch(19.51% 0.033 269.92);
+  --color-french-blue-950: oklch(16.63% 0.026 269.37);
+
+  /* Dim Grey */
+  --color-dim-grey-50: oklch(95.87% 0.003 286.35);
+  --color-dim-grey-100: oklch(91.92% 0.006 274.96);
+  --color-dim-grey-200: oklch(83.47% 0.012 281.04);
+  --color-dim-grey-300: oklch(75.06% 0.017 282.17);
+  --color-dim-grey-400: oklch(66.36% 0.024 280.07);
+  --color-dim-grey-500: oklch(57.37% 0.031 278.64);
+  --color-dim-grey-600: oklch(48.96% 0.026 279.77);
+  --color-dim-grey-700: oklch(40.16% 0.020 281.68);
+  --color-dim-grey-800: oklch(30.79% 0.016 280.39);
+  --color-dim-grey-900: oklch(20.97% 0.008 274.53);
+  --color-dim-grey-950: oklch(17.74% 0.004 264.46);
+
+  /* Brand aliases used by Nuxt UI */
+  --color-brand-primary-50: var(--color-french-blue-50);
+  --color-brand-primary-100: var(--color-french-blue-100);
+  --color-brand-primary-200: var(--color-french-blue-200);
+  --color-brand-primary-300: var(--color-french-blue-300);
+  --color-brand-primary-400: var(--color-french-blue-400);
+  --color-brand-primary-500: var(--color-french-blue-500);
+  --color-brand-primary-600: var(--color-french-blue-600);
+  --color-brand-primary-700: var(--color-french-blue-700);
+  --color-brand-primary-800: var(--color-french-blue-800);
+  --color-brand-primary-900: var(--color-french-blue-900);
+  --color-brand-primary-950: var(--color-french-blue-950);
+
+  --color-brand-neutral-50: var(--color-dim-grey-50);
+  --color-brand-neutral-100: var(--color-dim-grey-100);
+  --color-brand-neutral-200: var(--color-dim-grey-200);
+  --color-brand-neutral-300: var(--color-dim-grey-300);
+  --color-brand-neutral-400: var(--color-dim-grey-400);
+  --color-brand-neutral-500: var(--color-dim-grey-500);
+  --color-brand-neutral-600: var(--color-dim-grey-600);
+  --color-brand-neutral-700: var(--color-dim-grey-700);
+  --color-brand-neutral-800: var(--color-dim-grey-800);
+  --color-brand-neutral-900: var(--color-dim-grey-900);
+  --color-brand-neutral-950: var(--color-dim-grey-950);
+}
+
+/* SEMANTIC COLOR TOKENS — LIGHT MODE */
+:root {
+  --color-surface: var(--ui-bg);
+  --color-text-primary: var(--ui-text);
+  --color-action-primary: var(--ui-primary);
+}
+
+/* SEMANTIC COLOR TOKENS — DARK MODE
+   Nuxt UI automatically updates --ui-bg,
+   --ui-text and --ui-primary.
+   Therefore no separate .dark overrides are needed.
+*/
+
+/* =========================================
+   SPACING TOKENS
+   Based on the existing Tailwind spacing scale
+   ========================================= */
+
+:root {
+  --space-1: var(--spacing);
+  --space-2: calc(var(--spacing) * 2);
+  --space-3: calc(var(--spacing) * 3);
+  --space-4: calc(var(--spacing) * 4);
+  --space-6: calc(var(--spacing) * 6);
+  --space-8: calc(var(--spacing) * 8);
+  --space-16: calc(var(--spacing) * 16);
+  --space-24: calc(var(--spacing) * 24);
+  --space-32: calc(var(--spacing) * 32);
+}
+
+/* =========================================
+   TYPOGRAPHY TOKENS
+   References to existing Tailwind font sizes
+   ========================================= */
+
+:root {
+  --font-size-xs: var(--text-xs);
+  --font-size-sm: var(--text-sm);
+  --font-size-base: var(--text-base);
+  --font-size-lg: var(--text-lg);
+  --font-size-xl: var(--text-xl);
+  --font-size-2xl: var(--text-2xl);
+  --font-size-3xl: var(--text-3xl);
+  --font-size-4xl: var(--text-4xl);
+  --font-size-5xl: var(--text-5xl);
+  --font-size-6xl: var(--text-6xl);
+  --font-size-7xl: var(--text-7xl);
+}
+
