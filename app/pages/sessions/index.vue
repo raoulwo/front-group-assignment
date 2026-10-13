@@ -11,19 +11,36 @@ const {
   allDates,
   filteredSessions,
 } = useSessions()
+
 const { speakers } = useSpeakers()
 const { tracks } = useTracks()
 
-const levels = ['Einsteiger', 'Fortgeschritten', 'Experte']
-const formats = ['Vortrag', 'Workshop', 'Podium']
-
 const items = computed<SelectItem[]>(() => {
-  const selected = speakers.value.map(speaker => ({ label: speaker.name, value: speaker.id }))
+  const selected = speakers.value.map(speaker => ({
+    label: speaker.name,
+    value: speaker.id,
+  }))
 
   selected.unshift({ label: 'Alle Sprecher', value: 'all' })
 
   return selected
 })
+
+const trackOptions = computed(() =>
+  tracks.value.map(track => ({
+    value: track.id,
+    label: track.name,
+  })),
+)
+
+const resetFilters = () => {
+  searchQuery.value = ''
+  selectedSpeaker.value = 'all'
+  selectedTrack.value = null
+  selectedLevel.value = null
+  selectedFormat.value = null
+  selectedDate.value = null
+}
 </script>
 
 <template>
@@ -31,36 +48,17 @@ const items = computed<SelectItem[]>(() => {
     <UPageHeader title="Sessions" />
 
     <div class="p-8 lg:p-16">
-      <AppSearchBar
-        v-model="searchQuery"
-        placeholder="Suche nach Titel oder Abstract..."
-      />
-
-      <AppSelect
-        v-model="selectedSpeaker"
-        :items="items"
-        class="mt-3"
-      />
-
-      <AppSearchFilter
-        v-model="selectedTrack"
-        class="mt-3 space-x-1"
-        :options="tracks.map(track => ({ value: track.id, label: track.name }))"
-      />
-      <AppSearchFilter
-        v-model="selectedLevel"
-        class="mt-1 space-x-1"
-        :options="levels"
-      />
-      <AppSearchFilter
-        v-model="selectedFormat"
-        class="mt-1 space-x-1"
-        :options="formats"
-      />
-      <AppSearchFilter
-        v-model="selectedDate"
-        class="mt-1 space-x-1"
-        :options="allDates"
+      <SessionFilters
+        v-model:search-query="searchQuery"
+        v-model:selected-speaker="selectedSpeaker"
+        v-model:selected-track="selectedTrack"
+        v-model:selected-level="selectedLevel"
+        v-model:selected-format="selectedFormat"
+        v-model:selected-date="selectedDate"
+        :speaker-items="items"
+        :track-options="trackOptions"
+        :dates="allDates"
+        @reset="resetFilters"  
       />
 
       <SessionCardList
@@ -70,5 +68,3 @@ const items = computed<SelectItem[]>(() => {
     </div>
   </UContainer>
 </template>
-
-<style scoped></style>
