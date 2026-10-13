@@ -25,7 +25,6 @@ VuePoint uses centralized design tokens defined in `tokens/tokens.css`. The toke
 
 The design system includes French Blue and Dim Grey color palettes, semantic color aliases, and references to the existing typography and spacing scales.
 
-
 ## Conference Data
 
 Conference information is stored in `app/data/conference-data.json` and provided through `useConferenceData.ts`.
