@@ -1,5 +1,7 @@
 # VuePoint
 
+Git Remote: https://github.com/raoulwo/front-group-assignment
+
 ## About VuePoint
 
 VuePoint is a conference platform for FrontendNow, built with Nuxt 4, Vue 3, TypeScript, Tailwind CSS, and Nuxt UI.
